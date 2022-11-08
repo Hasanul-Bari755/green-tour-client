@@ -39,8 +39,8 @@ const AddServices = () => {
 			
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 				<div className="col-span-full sm:col-span-3">
-					<label htmlFor="firstname" className="text-sm">First name</label>
-					<input name='name' id="firstname" type="text" placeholder="First name" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<label htmlFor="firstname" className="text-sm">Service name</label>
+					<input name='name' id="firstname" type="text" placeholder="Service name" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
 				</div>
 				
 				<div className="col-span-full sm:col-span-3">
