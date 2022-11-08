@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-
+import toast from 'react-hot-toast';
+import AddReview from '../pages/AddReview/AddReview';
 const Servicesdetails = () => {
 
 	const {user} = useContext(AuthContext)
     const service = useLoaderData();
 	const { _id, name, price, img, rating, description } = service;
+	const [allreview, setAllreview] = useState([]);
+
+	useEffect(() => {
+		fetch(`http://localhost:5000/review?serviceId=${_id}`)
+		.then(res => res.json())
+			.then(data => {
+			setAllreview(data)
+			})
+		.catch(err=> console.log(err))
+	},[])
 	
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -33,7 +44,11 @@ const Servicesdetails = () => {
 		})
 			.then(res => res.json())
 			.then(data => {
-			console.log(data)
+				console.log(data)
+				if (data.acknowledged) {
+					toast.success('Successfully toasted!')
+					form.reset()
+				}
 			})
 		.catch(err=> console.log(err))
 	}
@@ -60,8 +75,10 @@ const Servicesdetails = () => {
 			</div>
 			
 			</div>
-		
+			<div className='flex justify-around'>
+				 <h2 className='text-3xl text-green-600 font-semibold'>Previous Review Below</h2>
 			<label htmlFor="my-modal-3" className="btn">Add Review</label>
+			 </div>
 
 			{/* Put this part before </body> tag */}
 			<input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -85,13 +102,39 @@ const Servicesdetails = () => {
 							</>
 							:
 							<>
-								<label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2"><Link to='/login'>✕</Link></label>
+								<label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 								<h3 className="text-lg font-bold"> Please login to add a review!</h3>
+								<div className='text-center'>
+									<Link to='/login'><button class="btn btn-sm">Login</button></Link>
+								</div>
 							</>
 					}
 					
 			</div>
 			</div>
+
+			{/* table start */}
+	<div className="overflow-x-auto w-full my-10">
+  <table className="table w-full">
+   
+    <thead>
+      <tr>
+        <th>
+          
+        </th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Review Text</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+	   {
+		 allreview.map(review => <AddReview key={review._id} singleReview={review}></AddReview>)			
+	   }
+    </tbody>
+  </table>
+</div>
 	   </div>
     );
 };

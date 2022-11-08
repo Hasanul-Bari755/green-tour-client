@@ -10,7 +10,7 @@ const Allservicescard = ({ service }) => {
             <div className="card w-96 bg-base-100 shadow-xl">
                  <PhotoProvider>
                     <PhotoView src={img}>
-                        <img className='rounded h-full' src={img} alt="" />
+                        <img className='rounded h-60' src={img} alt="" />
                     </PhotoView>
                     </PhotoProvider>
                    
