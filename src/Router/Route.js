@@ -8,6 +8,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import Servicesdetails from "../ServicesDetails/Servicesdetails";
 import Signup from "../Signup/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addservices',
-                element:<AddServices></AddServices>
+                element:<PrivateRoute><AddServices></AddServices></PrivateRoute>
             }
         ]
         

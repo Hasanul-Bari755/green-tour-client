@@ -1,5 +1,5 @@
 import React from 'react';
-
+import swal from 'sweetalert';
 const AddServices = () => {
 
     const handleSubmit = (event) => {
@@ -28,7 +28,11 @@ const AddServices = () => {
         })
             .then(res => res.json())
             .then(data => {
-            console.log(data)
+                console.log(data)
+                if (data.acknowledged) {
+                    swal("Successfully Added", "You clicked the button!", "success");
+                    form.reset();
+                }
         })
     }
     return (
