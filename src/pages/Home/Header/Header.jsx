@@ -5,8 +5,8 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'>Logout</li>
-        <li className='font-semibold'>Logoot</li>
+        <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        <li className='font-semibold'><Link to='/signup'>Sign Up</Link></li>
     </>
     return (
   <div className="navbar bg-base-100">
