@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 
 const Signup = () => {
        
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
+    const [error, setError] = useState('');
 
         const handleSubmit = (event) => {
         event.preventDefault()
@@ -16,7 +17,7 @@ const Signup = () => {
                     const user = result.user;
                     console.log(user)
                 })
-            .catch(err=> console.log(err))
+            .catch(err=> setError(err.message))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -38,7 +39,7 @@ const Signup = () => {
             <span className="label-text">Password</span>
           </label>
           <input type="password" name='password' placeholder="password" className="input input-bordered" />
-          
+                            <p className='text-red-600'>{ error}</p>
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
