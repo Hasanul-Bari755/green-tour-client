@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddReview = ({ singleReview }) => {
-    const {img,name,rating,review } = singleReview;
+    const {img,userName,rating,review } = singleReview;
     return (
         
             <tr>
@@ -12,14 +12,14 @@ const AddReview = ({ singleReview }) => {
           <div className="flex items-center space-x-3">
             
             <div>
-                <div className="font-bold">{ name}</div>
+                <div className="font-bold">{ userName}</div>
             
             </div>
           </div>
         </td>
         <td>
         <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask mask-squircle w-20 h-20">
             <img src={ img} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>

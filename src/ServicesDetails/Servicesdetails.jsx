@@ -17,19 +17,20 @@ const Servicesdetails = () => {
 			setAllreview(data)
 			})
 		.catch(err=> console.log(err))
-	},[])
+	},[allreview])
 	
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const form = event.target;
-		const name = form.name.value;
+		const userName = form.name.value;
 		const image = form.image.value;
 		const review = form.review.value;
 		
 		const myReview = {
 			serviceId: _id,
+			serviceName:name,
 			email: user?.email || 'unregistered',
-			name,
+			userName,
 			img: image,
 			review,
 			rating
@@ -93,6 +94,8 @@ const Servicesdetails = () => {
 								<form onSubmit={handleSubmit}>
 									
 									<input name='name' type="text" placeholder="Enter your name" className="input input-bordered input-secondary w-full max-w-xs mt-3" />
+
+									<input name='Email' type="text" placeholder="Enter your name" value={user?.email} className="input input-bordered input-secondary w-full max-w-xs mt-3"  readOnly/>
 									
 									<input name='image' type="text" placeholder="Enter Image URL" className="input input-bordered input-secondary w-full max-w-xs mt-3" />
 									

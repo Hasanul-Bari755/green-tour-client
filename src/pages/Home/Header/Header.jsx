@@ -15,6 +15,7 @@ const Header = () => {
   const menuItems = <>
        <li className='font-semibold'><Link to='/'>Home</Link></li>
        <li className='font-semibold'><Link to='/addservices'>Add Services</Link></li>
+       <li className='font-semibold'><Link to='/myreviews'>My Reviews</Link></li>
        {
       user?.email ? 
         <li className='font-semibold'><button onClick={handleLogout}>Logout</button></li>
@@ -30,7 +31,7 @@ const Header = () => {
        
     </>
     return (
-  <div className="navbar bg-base-100">
+  <div className="navbar bg-base-100 mb-7">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn-ghost lg:hidden">

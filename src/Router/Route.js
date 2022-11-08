@@ -6,6 +6,7 @@ import Allservices from "../pages/Allservices/Allservices";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 import Home from "../pages/Home/Home/Home";
+import Myreviews from "../pages/Myreviews/Myreviews";
 import Servicesdetails from "../ServicesDetails/Servicesdetails";
 import Signup from "../Signup/Signup";
 import PrivateRoute from "./PrivateRoute";
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addservices',
                 element:<PrivateRoute><AddServices></AddServices></PrivateRoute>
+            },
+            {
+                path: '/myreviews',
+                element:<PrivateRoute><Myreviews></Myreviews></PrivateRoute>
             }
         ]
         
