@@ -1,72 +1,70 @@
 import React from 'react';
 
 const AddServices = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const imageURL = form.imageURL.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+
+        const service = {
+            name,
+            img: imageURL,
+            rating,
+            price,
+            description
+        } 
+
+        fetch('http://localhost:5000/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => {
+            console.log(data)
+        })
+    }
     return (
-        <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
-	<form novalidate="" action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+        <section className="p-6 dark:bg-gray-800 dark:text-gray-50 my-10">
+            <h1 className='text-center text-3xl pb-5'>Please add service</h1>
+	<form onSubmit={handleSubmit} noValidate="" action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
 		<fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			<div className="space-y-2 col-span-full lg:col-span-1">
-				<p className="font-medium">Personal Inormation</p>
-				<p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
-			</div>
+			
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 				<div className="col-span-full sm:col-span-3">
-					<label for="firstname" className="text-sm">First name</label>
-					<input id="firstname" type="text" placeholder="First name" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<label htmlFor="firstname" className="text-sm">First name</label>
+					<input name='name' id="firstname" type="text" placeholder="First name" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
 				</div>
+				
 				<div className="col-span-full sm:col-span-3">
-					<label for="lastname" className="text-sm">Last name</label>
-					<input id="lastname" type="text" placeholder="Last name" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
-				</div>
-				<div className="col-span-full sm:col-span-3">
-					<label for="email" className="text-sm">Email</label>
-					<input id="email" type="email" placeholder="Email" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<label htmlFor="imageurl" className="text-sm">Image URL</label>
+					<input name='imageURL' id="imageurl" type="text" placeholder="Image URL" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
 				</div>
 				<div className="col-span-full">
-					<label for="address" className="text-sm">Address</label>
-					<input id="address" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<label htmlFor="address" className="text-sm">Description</label>
+					<textarea name='description' id="address" type="text-area" placeholder="Service description" className="w-full h-24 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
-					<label for="city" className="text-sm">City</label>
-					<input id="city" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<label htmlFor="city" className="text-sm">Price</label>
+					<input name='price' id="city" type="text" placeholder="price" className=" textarea w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
 				</div>
 				<div className="col-span-full sm:col-span-2">
-					<label for="state" className="text-sm">State / Province</label>
-					<input id="state" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
-				</div>
-				<div className="col-span-full sm:col-span-2">
-					<label for="zip" className="text-sm">ZIP / Postal</label>
-					<input id="zip" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
-				</div>
-			</div>
+					<label htmlFor="state" className="text-sm">Rating</label>
+					<input name='rating' id="state" type="text" placeholder="Ration" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+                </div>
+                     
+				
+                    </div>
+                  
 		</fieldset>
-		<fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
-			<div className="space-y-2 col-span-full lg:col-span-1">
-				<p className="font-medium">Profile</p>
-				<p className="text-xs">Adipisci fuga autem eum!</p>
-			</div>
-			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-				<div className="col-span-full sm:col-span-3">
-					<label for="username" className="text-sm">Username</label>
-					<input id="username" type="text" placeholder="Username" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
-				</div>
-				<div className="col-span-full sm:col-span-3">
-					<label for="website" className="text-sm">Website</label>
-					<input id="website" type="text" placeholder="https://" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
-				</div>
-				<div className="col-span-full">
-					<label for="bio" className="text-sm">Bio</label>
-					<textarea id="bio" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900"></textarea>
-				</div>
-				<div className="col-span-full">
-					<label for="bio" className="text-sm">Photo</label>
-					<div className="flex items-center space-x-2">
-						<img src="https://source.unsplash.com/30x30/?random" alt="" className="w-10 h-10 rounded-full dark:bg-gray-500 dark:bg-gray-700" />
-						<button type="button" className="px-4 py-2 border rounded-md dark:border-gray-100">Change</button>
-					</div>
-				</div>
-			</div>
-		</fieldset>
+		  <button className="btn btn-info w-1/2">Add Service</button>
 	</form>
 </section>
     );
