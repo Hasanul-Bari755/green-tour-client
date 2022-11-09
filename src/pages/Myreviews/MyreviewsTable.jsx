@@ -21,7 +21,7 @@ const MyreviewsTable = ({ myReview,handleDelete }) => {
               myReview?.img ? 
                  <div className="flex items-center space-x-3">
             <div className="avatar">
-                <div className="mask mask-squircle w-20 h-20">
+                <div className="mask mask-squircle w-16 h-16">
                    <img src={img} alt="Avatar Tailwind CSS Component" />
                 </div>
             </div>
@@ -31,7 +31,18 @@ const MyreviewsTable = ({ myReview,handleDelete }) => {
             </div>
                 </div>
                 :
-                <FaUserAlt className="w-20 h-20"></FaUserAlt>
+                  <div className="flex items-center space-x-3">
+            <div className="avatar">
+                <div className="mask mask-squircle w-16 h-16">
+                       <FaUserAlt className="w-16 h-16"></FaUserAlt>
+                </div>
+            </div>
+            <div>
+                <div className="font-bold">{ userName}</div>
+              
+            </div>
+                </div>
+            
             }
          
         </td>

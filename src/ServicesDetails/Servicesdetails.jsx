@@ -98,7 +98,7 @@ const Servicesdetails = () => {
 									<h3 className="text-lg font-bold">Please give your review!!</h3>
 								<form onSubmit={handleSubmit}>
 									
-									<input name='name' type="text" placeholder="Enter your name" className="input input-bordered input-secondary w-full max-w-xs mt-3" />
+									<input name='name' type="text" required placeholder="Enter your name" className="input input-bordered input-secondary w-full max-w-xs mt-3" />
 
 									<input name='Email' type="text" placeholder="Enter your name" value={user?.email} className="input input-bordered input-secondary w-full max-w-xs mt-3"  readOnly/>
 									
