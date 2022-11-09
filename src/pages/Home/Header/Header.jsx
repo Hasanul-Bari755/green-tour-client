@@ -31,7 +31,7 @@ const Header = () => {
        
     </>
     return (
-  <div className="navbar bg-base-100 mb-7">
+  <div className="navbar bg-base-100 my-7">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn-ghost lg:hidden">
@@ -52,7 +52,7 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Get started</a>
+    <Link className="btn">Blog</Link>
   </div>
 </div>
     );

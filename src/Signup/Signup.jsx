@@ -26,7 +26,11 @@ const Signup = () => {
             .catch(err=> setError(err.message))
     }
     return (
-        <div className="hero min-h-screen bg-base-200">
+      <div className='flex'>
+        <div className='mt-20'>
+            <img className='w-4/5 h-96 rounded-sm' src="https://i0.wp.com/codemyui.com/wp-content/uploads/2016/01/owl-login-form-replica-from-readme-io_.gif?fit=880%2C440&ssl=1" alt="" />
+      </div>
+        <div className="hero min-h-screen bg-base-200 w-1/2">
   <div className="hero-content flex-col ">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Sign Up!</h1>
@@ -53,7 +57,8 @@ const Signup = () => {
       </form>
     </div>
   </div>
-</div>
+        </div>
+        </div>
     );
 };
 
