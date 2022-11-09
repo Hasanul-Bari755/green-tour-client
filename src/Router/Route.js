@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Login from "../Login/Login";
 import AddServices from "../pages/AddServices/AddServices";
 import Allservices from "../pages/Allservices/Allservices";
+import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 import Home from "../pages/Home/Home/Home";
@@ -52,7 +53,12 @@ export const router = createBrowserRouter([
                 path: '/reviewupdate/:id',
                 element: <Update></Update>,
                 loader: ({params})=> fetch(`http://localhost:5000/reviewupdate/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element:<Blog></Blog>
             }
+
         ]
         
     }

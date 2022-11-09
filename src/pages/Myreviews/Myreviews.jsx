@@ -11,7 +11,11 @@ const Myreviews = () => {
    
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization : `Bearer ${localStorage.getItem('greenJwt-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
             setMyReviews(data)
@@ -24,7 +28,10 @@ const Myreviews = () => {
         const process = window.confirm('Are you sure want to delete?')
         if (process) {
                 fetch(`http://localhost:5000/review/${id}`, {
-            method:'DELETE'
+                    method: 'DELETE',
+                    headers: {
+                      authorization : `Bearer ${localStorage.getItem('greenJwt-token')}`
+                    }
            })
             .then(res => res.json())
             .then(data => {

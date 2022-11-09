@@ -23,7 +23,8 @@ const Update = () => {
          fetch(`http://localhost:5000/updatereview/${_id}`, {
             method: 'PATCH',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json',
+                 authorization : `Bearer ${localStorage.getItem('greenJwt-token')}`
             },
             body:JSON.stringify(updateReview)
         })

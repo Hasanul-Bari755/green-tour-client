@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-
+import { FaGoogle } from "react-icons/fa";
 const Login = () => {
     const { login } = useContext(AuthContext);
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate()
 
-    const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
+  
+  
     
 
     const handleSubmit = (event) => {
@@ -20,16 +22,27 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                navigate(from, { replace: true });
-        }).catch(err=> setError(err.message))
+            fetch('http://localhost:5000/jwt',{
+            method:"POST",
+            headers:{
+              'content-type' : 'application/json'
+            },
+            body:JSON.stringify({user:user.email})
+          })
+          .then(res=>res.json())
+          .then(data=>{
+            localStorage.setItem('greenJwt-token',data.token)
+          })
+          .catch(e=>console.error(e))
+           navigate(from, { replace: true });
+          }).catch(err=> setError(err.message))
     }
     return (
-      <div className='flex'>
+      <div className='lg:flex lg:flex-row sm:grid sm:grid-cols-1'>
         <div className='mt-20'>
             <img className='w-4/5 h-96 rounded-sm shadow-md' src="https://i0.wp.com/codemyui.com/wp-content/uploads/2016/01/owl-login-form-replica-from-readme-io_.gif?fit=880%2C440&ssl=1" alt="" />
       </div>
-        <div className="hero min-h-screen bg-base-200 w-1/2">
+        <div className="hero min-h-screen bg-base-200 w-1/2 sm:mx--auto">
        
         <div className="hero-content flex-col lg:flex-row-reverse ">
       <div className="text-center lg:text-left">
@@ -51,15 +64,16 @@ const Login = () => {
           </label>
           <input type="password" name='password' placeholder="password" className="input input-bordered" />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            <p><small>Have a no account?</small><Link className='btn-link font-semibold' to='/signup'> Singup</Link></p>
           </label>
             </div>
          <p className='text-red-600'>{ error}</p>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-      </form>
-    </div>
+          </form>
+             
+        </div>
         </div>
        </div>
       </div>
