@@ -6,6 +6,9 @@ import MyreviewsTable from './MyreviewsTable';
 const Myreviews = () => {
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
+    const [updateUser, setupdateUser] = ([])
+    console.log(updateUser)
+   
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`)
@@ -19,10 +22,10 @@ const Myreviews = () => {
     const handleDelete = (id) => {
 
         const process = window.confirm('Are you sure want to delete?')
-
-        fetch(`http://localhost:5000/review/${id}`, {
+        if (process) {
+                fetch(`http://localhost:5000/review/${id}`, {
             method:'DELETE'
-        })
+           })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -32,31 +35,54 @@ const Myreviews = () => {
                     toast.success('Successfully delete!')
                 }
         })
+        }
+
+     
     }
 
+    
+
     return (
-       <div className="overflow-x-auto w-full">
-  <table className="table w-full">
-   <thead>
-      <tr>
-        <th>
-          <label>
-           <h1>DELETE</h1>
-          </label>
-        </th>
-        <th>Profile Info</th>
-        <th>Service Info</th>
-        <th>Review</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
+       
+        <div>
+         {
+                myReviews.length === 0 ? 
+                
+                   <div className='flex justify-center items-center pt-16 '>
+                          <p className='text-center text-4xl'>No reviews were added</p>  
+                  </div>  
+                 
+                    : 
+            <div className="overflow-x-auto w-full">
+            <table className="table w-full">
+            <thead>
+                <tr>
+                    <th>
+                    <label>
+                    <h1>DELETE</h1>
+                    </label>
+                    </th>
+                    <th>Profile Info</th>
+                    <th>Service Info</th>
+                    <th>Review</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
           {
-             myReviews.map(myReview => <MyreviewsTable key={myReview._id} myReview={myReview} handleDelete={handleDelete}></MyreviewsTable>)       
+                     myReviews.map(myReview => <MyreviewsTable
+                         key={myReview._id}
+                         myReview={myReview}
+                         handleDelete={handleDelete}>
+                         setupdateUser={setupdateUser}
+                 
+             </MyreviewsTable>)       
           }          
     </tbody>
     </table>
-</div>
+     </div>        
+        }
+       </div>
     );
 };
 

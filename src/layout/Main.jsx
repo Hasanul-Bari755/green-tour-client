@@ -5,7 +5,7 @@ import Header from '../pages/Home/Header/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div className='h-screen flex flex-col'>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

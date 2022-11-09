@@ -44,24 +44,24 @@ const AddServices = () => {
 			<div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="firstname" className="text-sm">Service name</label>
-					<input name='name' id="firstname" type="text" placeholder="Service name" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<input name='name' id="firstname" type="text" placeholder="Service name" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required/>
 				</div>
 				
 				<div className="col-span-full sm:col-span-3">
 					<label htmlFor="imageurl" className="text-sm">Image URL</label>
-					<input name='imageURL' id="imageurl" type="text" placeholder="Image URL" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<input name='imageURL' id="imageurl" type="text" placeholder="Image URL" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required />
 				</div>
 				<div className="col-span-full">
 					<label htmlFor="address" className="text-sm">Description</label>
-					<textarea name='description' id="address" type="text-area" placeholder="Service description" className="w-full h-24 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<textarea name='description' id="address" type="text-area" placeholder="Service description" className="w-full h-24 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required />
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label htmlFor="city" className="text-sm">Price</label>
-					<input name='price' id="city" type="text" placeholder="price" className=" textarea w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<input name='price' id="city" type="text" placeholder="price" className=" textarea w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required/>
 				</div>
 				<div className="col-span-full sm:col-span-2">
 					<label htmlFor="state" className="text-sm">Rating</label>
-					<input name='rating' id="state" type="text" placeholder="Ration" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" />
+					<input name='rating' id="state" type="text" placeholder="Ration" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required />
                 </div>
                      
 				

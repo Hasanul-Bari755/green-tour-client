@@ -19,7 +19,7 @@ const Allservicescard = ({ service }) => {
                      {name}
                     
                     </h2>
-                    <p>{description.length > 120 ? description.slice(0, 120) + '...' : { description }}</p>
+                    <p>{description.length > 120 ? description.slice(0, 120) + '...' :  description }</p>
                     
                     <div className="card-actions justify-between">
                                 <div className="text-green-600 text-2xl font-bold">Price: { price}$</div> 
