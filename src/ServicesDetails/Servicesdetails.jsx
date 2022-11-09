@@ -25,15 +25,20 @@ const Servicesdetails = () => {
 		const userName = form.name.value;
 		const image = form.image.value;
 		const review = form.review.value;
-		
-		const myReview = {
+
+		const date = new Date().toLocaleString();
+
+        const myReview = {
 			serviceId: _id,
 			serviceName:name,
 			email: user?.email || 'unregistered',
 			userName,
 			img: image,
 			review,
-			rating
+			rating,
+			date
+			
+			
 		}
 
 		fetch('http://localhost:5000/review', {
