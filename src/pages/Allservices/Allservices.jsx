@@ -39,6 +39,9 @@ const Allservices = () => {
                     services.map(service => <Allservicescard key={service._id} service={service}></Allservicescard>)
                 }
             </div>
+
+            {/* implement pegination */}
+
             <div className='text-center'>
                 <div className='btn-group'>
                 {

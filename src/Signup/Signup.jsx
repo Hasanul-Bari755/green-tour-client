@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import useTitle from '../hooks/useTitle'
 const Signup = () => {
        
-    const { createUser } = useContext(AuthContext)
+    const { createUser,updateUserName } = useContext(AuthContext)
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -13,13 +13,24 @@ const Signup = () => {
 
         const handleSubmit = (event) => {
         event.preventDefault()
-        const form = event.target;
+          const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         
             createUser(email, password)
                 .then(result => {
-            const user = result.user;
+                  const user = result.user;
+                  //add user name
+                  updateUserName({ displayName: name })
+                    .then(() => {
+                    
+                    })
+                    .catch(err => {
+                    
+                    })
+                  console.log(user)
+                  //jwt verification
             fetch('https://green-ture-server.vercel.app/jwt',{
             method:"POST",
             headers:{
@@ -51,6 +62,12 @@ const Signup = () => {
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleSubmit} className="card-body">
+        <div  className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input type="text" name='name' placeholder="Enter your name" className="input input-bordered" />
+        </div>
         <div  className="form-control">
           <label className="label">
             <span className="label-text">Email</span>

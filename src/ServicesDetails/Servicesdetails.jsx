@@ -26,7 +26,7 @@ const Servicesdetails = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const form = event.target;
-		const userName = form.name.value;
+	
 		const image = form.image.value;
 		const review = form.review.value;
 
@@ -36,7 +36,7 @@ const Servicesdetails = () => {
 			serviceId: _id,
 			serviceName:name,
 			email: user?.email || 'unregistered',
-			userName,
+			userName:user?.displayName,
 			img: image,
 			review,
 			rating,
@@ -103,7 +103,7 @@ const Servicesdetails = () => {
 									<h3 className="text-lg font-bold">Please give your review!!</h3>
 								<form onSubmit={handleSubmit}>
 									
-									<input name='name' type="text" required placeholder="Enter your name" className="input input-bordered input-secondary w-full max-w-xs mt-3" />
+									<input name='name' type="text" required placeholder="Enter your name" value={user?.displayName} className="input input-bordered input-secondary w-full max-w-xs mt-3" />
 
 									<input name='Email' type="text" placeholder="Enter your name" value={user?.email} className="input input-bordered input-secondary w-full max-w-xs mt-3"  readOnly/>
 									

@@ -66,7 +66,7 @@ const Login = () => {
           </label>
              <input type="password" name='password' placeholder="password" className="input input-bordered" />
                 <label className="label">
-            <p><small>Have a no account?</small><Link className='btn-link font-semibold' to='/signup'> Login</Link></p>
+            <p><small>Have a no account?</small><Link className='btn-link font-semibold' to='/signup'>Signup</Link></p>
           </label>
                <p className='text-red-600'>{ error}</p>
         </div>
