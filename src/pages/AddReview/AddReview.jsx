@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaUserAlt } from "react-icons/fa";
+
 const AddReview = ({ singleReview }) => {
-    const {img,userName,rating,review } = singleReview;
+  const { img, userName, rating, review } = singleReview;
+  
+
     return (
         
             <tr>

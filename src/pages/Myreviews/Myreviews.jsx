@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import MyreviewsTable from './MyreviewsTable';
+import useTitle from '../../hooks/useTitle';
 
 const Myreviews = () => {
     const { user } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
     const [updateUser, setupdateUser] = ([])
-    console.log(updateUser)
-   
+
+   useTitle('Myreview')
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`, {

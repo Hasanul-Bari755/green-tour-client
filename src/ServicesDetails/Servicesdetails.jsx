@@ -3,12 +3,15 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import AddReview from '../pages/AddReview/AddReview';
+import useTitle from '../hooks/useTitle';
 const Servicesdetails = () => {
 
 	const {user} = useContext(AuthContext)
     const service = useLoaderData();
 	const { _id, name, price, img, rating, description } = service;
 	const [allreview, setAllreview] = useState([]);
+
+	useTitle('Service-Details')
 
 	useEffect(() => {
 		fetch(`http://localhost:5000/review?serviceId=${_id}`)

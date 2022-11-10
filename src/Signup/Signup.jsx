@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useLocation, useNavigate,Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-
+import useTitle from '../hooks/useTitle'
 const Signup = () => {
        
     const { createUser } = useContext(AuthContext)
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
-
+    useTitle('SignUp')
     const from = location.state?.from?.pathname || "/";
 
         const handleSubmit = (event) => {
@@ -31,7 +31,9 @@ const Signup = () => {
           .then(data=>{
             localStorage.setItem('greenJwt-token',data.token)
           })
-          .catch(e=>console.error(e))
+            .catch(e => console.error(e))
+                  setError('')
+                 form.reset() 
                navigate(from, { replace: true });
                 })
             .catch(err=> setError(err.message))

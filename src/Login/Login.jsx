@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
+import useTitle from '../hooks/useTitle'
 const Login = () => {
     const { login } = useContext(AuthContext);
     const [error, setError] = useState('');
     const location = useLocation();
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+   useTitle('Login')
 
   const from = location.state?.from?.pathname || "/";
   
@@ -34,7 +36,9 @@ const Login = () => {
             localStorage.setItem('greenJwt-token',data.token)
           })
           .catch(e=>console.error(e))
-           navigate(from, { replace: true });
+              navigate(from, { replace: true });
+              setError('')
+              form.reset()
           }).catch(err=> setError(err.message))
     }
     return (

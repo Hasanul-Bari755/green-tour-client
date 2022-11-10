@@ -1,6 +1,8 @@
 import React from 'react';
 import swal from 'sweetalert';
+import useTitle from '../../hooks/useTitle'
 const AddServices = () => {
+         useTitle('Addservises')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -10,6 +12,8 @@ const AddServices = () => {
         const description = form.description.value;
         const price = form.price.value;
         const rating = form.rating.value;
+        
+   
 
         const service = {
             name,
