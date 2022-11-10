@@ -4,7 +4,7 @@ const Banner = () => {
     return (
     <div className="carousel w-[90%] mx-auto">
   <div id="slide1" className="carousel-item relative w-full h-1/3">
-    <img src="https://gozayaan.sgp1.digitaloceanspaces.com/media/tour_management/pictures/upload/33f89a75-5bce-4915-8cb6-37f616c8be99.jpg" alt='' className="w-full rounded" />
+    <img src="https://gozayaan.sgp1.digitaloceanspaces.com/media/tour_management/pictures/upload/b8791195-90ad-4a0e-92ce-bb1b1536fec1.jpg" alt='' className="w-full rounded" />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <a href="#slide4" className="btn btn-circle">❮</a> 
       <a href="#slide2" className="btn btn-circle">❯</a>

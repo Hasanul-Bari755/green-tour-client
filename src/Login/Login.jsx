@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
-import useTitle from '../hooks/useTitle'
+import useTitle from '../hooks/useTitle';
 const Login = () => {
     const { login } = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -24,7 +24,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://green-ture-server.vercel.app/jwt',{
             method:"POST",
             headers:{
               'content-type' : 'application/json'

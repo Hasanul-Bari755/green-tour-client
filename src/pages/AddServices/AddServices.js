@@ -13,7 +13,10 @@ const AddServices = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         
-   
+        if (rating > 5) {
+            alert('Please rating lessthen 5')
+            return;
+        }
 
         const service = {
             name,
@@ -23,7 +26,7 @@ const AddServices = () => {
             description
         } 
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://green-ture-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -64,7 +67,7 @@ const AddServices = () => {
 					<input name='price' id="city" type="text" placeholder="price" className=" textarea w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required/>
 				</div>
 				<div className="col-span-full sm:col-span-2">
-					<label htmlFor="state" className="text-sm">Rating</label>
+					<label htmlFor="state" className="text-sm">Rating Out Of 5</label>
 					<input name='rating' id="state" type="text" placeholder="Ration" className="w-full h-10 rounded-md focus:ring focus:ring-opacity-75 focus:ring-emerald-400 dark:border-gray-700 dark:text-gray-900" required />
                 </div>
                      

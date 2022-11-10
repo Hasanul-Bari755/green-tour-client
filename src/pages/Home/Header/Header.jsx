@@ -20,7 +20,7 @@ const Header = () => {
     loginWithGoogle()
       .then(result => {
         const user = result.user;
-          fetch('http://localhost:5000/jwt',{
+          fetch('https://green-ture-server.vercel.app/jwt',{
             method:"POST",
             headers:{
               'content-type' : 'application/json'

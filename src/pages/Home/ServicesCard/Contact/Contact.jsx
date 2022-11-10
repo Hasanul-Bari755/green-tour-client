@@ -22,7 +22,7 @@ const Contact = () => {
                    <FaCalendarAlt className='mr-2'></FaCalendarAlt>
                     <div>
                         <h1><small>We are open</small></h1>
-                        <h1>+21236541254</h1>
+                        <h1>9.00am To 9.00pm</h1>
                     </div>
                </div>
             </div>

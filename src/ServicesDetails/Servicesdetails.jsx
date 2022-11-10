@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import AddReview from '../pages/AddReview/AddReview';
@@ -10,11 +10,14 @@ const Servicesdetails = () => {
     const service = useLoaderData();
 	const { _id, name, price, img, rating, description } = service;
 	const [allreview, setAllreview] = useState([]);
+	
+	const location = useLocation()
+	
 
 	useTitle('Service-Details')
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/review?serviceId=${_id}`)
+		fetch(`https://green-ture-server.vercel.app/review?serviceId=${_id}`)
 		.then(res => res.json())
 			.then(data => {
 			setAllreview(data)
@@ -44,7 +47,7 @@ const Servicesdetails = () => {
 			
 		}
 
-		fetch('http://localhost:5000/review', {
+		fetch('https://green-ture-server.vercel.app/review', {
 			method: 'POST',
 			headers: {
 				'content-type' : 'application/json'
@@ -65,7 +68,7 @@ const Servicesdetails = () => {
 		<div>
 			<div className=" mx-auto p-4 my-8 shadow-md dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex justify-between pb-4 border-bottom">
-	
+		
 	</div>
 	<div className="space-y-4">
 		<div className="space-y-2">
@@ -77,16 +80,17 @@ const Servicesdetails = () => {
 		</div>
 		<div className="space-y-2">
 		
-				<h3 className="text-xl font-semibold dark:text-emerald-400">{ name}</h3>
+			<h3 className="text-xl font-semibold dark:text-emerald-400">{ name}</h3>
 			
 			<p className="leading-snug dark:text-gray-400">{ description}</p>
 		</div>
 			</div>
 			
 			</div>
+			
 			<div className='flex justify-around'>
 				 <h2 className='text-3xl text-green-600 font-semibold'>Previous Review Below</h2>
-			<label htmlFor="my-modal-3" className="btn">Add Review</label>
+			<label  htmlFor="my-modal-3" className="btn">Add Review</label>
 			 </div>
 
 			{/* Put this part before </body> tag */}
@@ -141,12 +145,12 @@ const Servicesdetails = () => {
     </thead>
     <tbody>
 	   {
-		 allreview.map(review => <AddReview key={review._id} singleReview={review}></AddReview>)			
+		 allreview.map(review => <AddReview key={review._id} singleReview={review}></AddReview>)		
 	   }
     </tbody>
   </table>
 </div>
-	   </div>
+	</div>
     );
 };
 

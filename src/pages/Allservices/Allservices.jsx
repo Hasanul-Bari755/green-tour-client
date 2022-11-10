@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Allservicescard from '../AllservicesCard/Allservicescard';
 import useTitle from '../../hooks/useTitle';
+import Loader from '../Loader/Loader';
 
 const Allservices = () => {
      useTitle('All-Services')
@@ -9,20 +10,28 @@ const Allservices = () => {
     const [count, setCount] = useState(0);
     const [pageNumber, setpageNumber] = useState(0);
     const [sizeOfData, setSizeOfdata] = useState(6);
+    const [loading, setLoading] = useState(false);
 
     const pages = Math.ceil(count / sizeOfData);
 
+    
+
     useEffect(() => {
-        fetch(`http://localhost:5000/servicesall?pageNumber=${pageNumber}&sizeOfData=${sizeOfData}`)
+        setLoading(true)
+        fetch(`https://green-ture-server.vercel.app/servicesall?pageNumber=${pageNumber}&sizeOfData=${sizeOfData}`)
             .then(res => res.json())
             .then(data => {
                 setServices(data.services)
                 setCount(data.count)
+                setLoading(false)
         })
     },[pageNumber,sizeOfData])
   
-   
+   if (loading) {
+       return <Loader></Loader>
+    }
     return (
+       
         <div className='my-10'>
                  <h2 className='text-center text-5xl underline decoration-dotted mb-10 text-green-600 '>All Popular Tours</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 my-6'>

@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <Servicesdetails></Servicesdetails>,
-                loader:({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=> fetch(`https://green-ture-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
             {
                 path: '/reviewupdate/:id',
                 element: <Update></Update>,
-                loader: ({params})=> fetch(`http://localhost:5000/reviewupdate/${params.id}`)
+                loader: ({params})=> fetch(`https://green-ture-server.vercel.app/reviewupdate/${params.id}`)
             },
             {
                 path: '/blog',

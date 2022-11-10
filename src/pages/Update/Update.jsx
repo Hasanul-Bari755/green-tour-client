@@ -20,7 +20,7 @@ const Update = () => {
             review:review
         }
         console.log(updateReview)
-         fetch(`http://localhost:5000/updatereview/${_id}`, {
+         fetch(`https://green-ture-server.vercel.app/updatereview/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
