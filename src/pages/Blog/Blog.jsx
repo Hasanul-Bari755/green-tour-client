@@ -5,7 +5,8 @@ const Blog = () => {
     return (
         <div className='mb-7'>
              <div className='lg:w-[95%] lg:mx-auto lg:mt-3 grid lg:grid-cols-2 md:grid-cols-2 lg:gap-3  grid-cols-1'>
-           <div className="max-w-md p-6 overflow-hidden rounded-lg shadow dark:bg-gray-900 dark:text-gray-100">
+                <div className="max-w-md p-6 overflow-hidden rounded-lg shadow dark:bg-gray-900 dark:text-gray-100">
+                
 	        <article>
 		  <h2 className="text-xl font-bold"> Difference between SQL and NoSQL?</h2>
 		   <p className="mt-4 dark:text-gray-400">SQL has been around for over 40 years, so it is recognizable, documented, and widely-used. Safe and versatile, it’s particularly well suited for complex queries. However, SQL restricts the user to working within a predefined tabular schema, and more care must be taken to organize and understand the data before it is used.
