@@ -73,10 +73,12 @@ const Header = () => {
             user?.email ? 
               <button onClick={handleLogout} className="btn">Logout</button>
               :
-              <>
-                <Link to='/login' onClick={handleGooleLogin} className="btn mr-2"><img className='w-6 h-6 mr-2' src="https://i.ibb.co/Sc2XP7f/profile-vrt-raw-bytes-1587515358-10512.png" alt="" />Google Login</Link>
-                <Link to='/login' className="btn">Login</Link>
-              </>
+              <div>
+                <Link onClick={handleGooleLogin} className="btn mr-2"><img className='w-6 h-6 mr-2' src="https://i.ibb.co/Sc2XP7f/profile-vrt-raw-bytes-1587515358-10512.png" alt="" />Google Login</Link>
+                <Link to='/login'  className="btn mr-2"><img className='w-6 h-6 mr-2' src="https://i.ibb.co/HdWZdph/images.jpg" alt="" />Login</Link>
+                
+               
+              </div>
           }
   
   </div>
