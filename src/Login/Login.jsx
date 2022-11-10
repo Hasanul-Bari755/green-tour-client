@@ -42,19 +42,17 @@ const Login = () => {
           }).catch(err=> setError(err.message))
     }
     return (
-      <div className='lg:flex lg:flex-row sm:grid sm:grid-cols-1'>
+     <div className='lg:flex lg:flex-row sm:grid sm:grid-cols-1'>
         <div className='mt-20'>
-            <img className='w-4/5 h-96 rounded-sm shadow-md' src="https://i0.wp.com/codemyui.com/wp-content/uploads/2016/01/owl-login-form-replica-from-readme-io_.gif?fit=880%2C440&ssl=1" alt="" />
+            <img className='w-4/5 h-96 rounded-sm' src="https://i0.wp.com/codemyui.com/wp-content/uploads/2016/01/owl-login-form-replica-from-readme-io_.gif?fit=880%2C440&ssl=1" alt="" />
       </div>
-        <div className="hero min-h-screen bg-base-200 w-1/2 sm:mx--auto">
-       
-        <div className="hero-content flex-col lg:flex-row-reverse ">
-      <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
+        <div className="hero min-h-screen bg-base-200 w-1/2">
+  <div className="hero-content flex-col ">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Login Now!</h1>
       
     </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleSubmit} className="card-body">
         <div  className="form-control">
           <label className="label">
@@ -66,21 +64,20 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered" />
-          <label className="label">
-            <p><small>Have a no account?</small><Link className='btn-link font-semibold' to='/signup'> Singup</Link></p>
+             <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                <label className="label">
+            <p><small>Have a no account?</small><Link className='btn-link font-semibold' to='/signup'> Login</Link></p>
           </label>
-            </div>
-         <p className='text-red-600'>{ error}</p>
+               <p className='text-red-600'>{ error}</p>
+        </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
-          </form>
-             
+      </form>
+    </div>
+  </div>
         </div>
         </div>
-       </div>
-      </div>
     );
 };
 

@@ -68,7 +68,7 @@ const Signup = () => {
                <p className='text-red-600'>{ error}</p>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Sign up</button>
         </div>
       </form>
     </div>

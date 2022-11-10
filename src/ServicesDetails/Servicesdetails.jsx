@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, Navigate, useLoaderData, useLocation } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import AddReview from '../pages/AddReview/AddReview';
@@ -11,9 +11,7 @@ const Servicesdetails = () => {
 	const { _id, name, price, img, rating, description } = service;
 	const [allreview, setAllreview] = useState([]);
 	
-	const location = useLocation()
 	
-
 	useTitle('Service-Details')
 
 	useEffect(() => {
@@ -87,13 +85,13 @@ const Servicesdetails = () => {
 			</div>
 			
 			</div>
-			
+			{/* modal button start */}
 			<div className='flex justify-around'>
 				 <h2 className='text-3xl text-green-600 font-semibold'>Previous Review Below</h2>
 			<label  htmlFor="my-modal-3" className="btn">Add Review</label>
 			 </div>
 
-			{/* Put this part before </body> tag */}
+			{/* modal body  */}
 			<input type="checkbox" id="my-modal-3" className="modal-toggle" />
 			<div className="modal">
 				<div className="modal-box relative">
@@ -127,6 +125,8 @@ const Servicesdetails = () => {
 					
 			</div>
 			</div>
+
+			{/* modal end */}
 
 			{/* table start */}
 	<div className="overflow-x-auto w-full my-10">
